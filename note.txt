@@ -1,0 +1,6 @@
+#Rackup logic
+
+config_file = File.read(config)
+rack_application = eval("Rack::Builder.new { #{config_file} }")
+
+server.run rack_application, options
